@@ -1,73 +1,79 @@
-🧮 Scientific Calculator GUI
-A modern, feature-rich scientific calculator built with Python and tkinter, supporting both standard and scientific operations. It adapts automatically to your system's light or dark mode using the darkdetect module and includes a history view, angle mode switching (RAD/DEG), and keyboard input support.
+# Scientific Calculator GUI (Python + Tkinter)
 
-✨ Features
-Standard & Scientific Modes with tabbed UI
+This project is a fully functional **scientific calculator** built using Python’s `tkinter` library for the graphical user interface (GUI). It combines both standard and scientific calculator features in a modern tabbed layout with adaptive theming based on your system’s light/dark mode. Designed to be intuitive and user-friendly, this calculator supports keyboard input, angle mode switching (Radians/Degrees), expression evaluation, and real-time history tracking.
 
-Light/Dark Theme detection using darkdetect
+---
 
-Keyboard Input Support for smooth usage
+## Overview
 
-Trigonometric Functions in RAD/DEG mode
+The calculator is divided into two main functional tabs:
 
-Calculation History Viewer
+- **Standard Mode**: Includes basic arithmetic operations (`+`, `-`, `×`, `÷`), number entry, brackets, and commonly used constants like `π` and `e`.
+  
+- **Scientific Mode**: Adds support for advanced mathematical operations such as trigonometric functions (`sin`, `cos`, `tan`, and their inverses), logarithmic and exponential functions, powers and roots, factorial, modulus, absolute value, and more.
 
-Hover Effects and customizable themes
+It also includes an **angle mode switcher** (RAD/DEG), a **dedicated history display**, and dynamic evaluation with error handling.
 
-Error Handling with user-friendly messages
+---
 
-🧩 Requirements
-Python 3.6+
+## Key Features
 
-Required packages:
+### 🧑‍💻 GUI & Usability
+- Built using `tkinter`, offering a native desktop experience.
+- Organized using a **tabbed interface** for clear separation between standard and scientific functions.
+- Automatically adapts to **dark or light theme** based on the user's system preferences using the `darkdetect` module.
+- **Responsive design** with resizable layout and smart button grids.
 
-bash
-Copy
-Edit
-pip install darkdetect
-📦 File Structure
-bash
-Copy
-Edit
-calculator_gui.py     # Main Python script containing all GUI logic
-README.md             # This file
-🛠 How to Run
-Make sure darkdetect is installed:
+### 🎯 Functional Highlights
+- **Keyboard Binding Support**: Common keys (0-9, operators, Enter, Backspace) are mapped for quick input.
+- **Angle Mode Toggle**: Trigonometric functions interpret input in degrees or radians based on toggle state.
+- **History Tracking**: Maintains a running history of past calculations with the ability to view full history in a separate window.
+- **Hover Effects**: Buttons highlight dynamically to enhance user experience and improve accessibility.
+- **Error Handling**: Displays error messages for invalid expressions or math errors like division by zero.
 
-bash
-Copy
-Edit
-pip install darkdetect
-Run the calculator:
+### 🔬 Scientific Support
+- Trigonometric: `sin`, `cos`, `tan`, `asin`, `acos`, `atan`
+- Hyperbolic: `sinh`, `cosh`, `tanh`
+- Logs and Exponentials: `log`, `ln`, `exp`, `x²`, `x³`, `xʸ`
+- Roots and Powers: `√`, `∛`, `mod`, `abs`, `1/x`, `⌊x⌋`, `⌈x⌉`
+- Constants: `π`, `e`
+- Miscellaneous: `factorial`, `random`
 
-bash
-Copy
-Edit
-python calculator_gui.py
-🎛 Functionality Overview
-🖱 Buttons
-Standard Buttons: Digits, basic operators, parentheses, history, clear, backspace, etc.
+---
 
-Scientific Buttons: Trigonometric (sin, cos, etc.), logarithmic (log, ln), power & roots, abs, mod, factorial, and more.
+## Internal Architecture
 
-Special Controls:
+- **CalculatorGUI Class**: Handles all UI elements, input logic, display rendering, and event handling.
+- **Calculator Class**: Maintains a history list and separates the logic from the GUI.
+- **Expression Parser**: Prepares mathematical expressions before evaluation. For example, trigonometric functions are converted into radians when in DEG mode using regex replacements.
+- **Theme System**: A dictionary-driven color scheme defines appearance dynamically based on system theme.
 
-RAD/DEG: Toggle angle mode for trigonometric calculations
+---
 
-hist: Show full calculation history
+## Ideal Use Cases
 
-⌨ Keyboard Shortcuts
-Key	Action
-Enter	Evaluate (=)
-Backspace	Delete last char
-Delete / Escape	Clear display
-0-9, +, -, *, /, .	Insert into display
+- Desktop users needing a lightweight and capable scientific calculator.
+- Students and educators looking for a customizable open-source math tool.
+- Python learners exploring GUI development with `tkinter`.
 
-🧠 Internals
-Expression Parsing: Supports constants like π, e and dynamic conversion of angles using radians() when in DEG mode.
+---
 
-Safe eval(): Preprocessed input string ensures Python-safe evaluation.
+## Getting Started
 
-Hover Effects: Buttons change style on hover for better UX.
+To run the application:
 
-History Management: Keeps a log of previous expressions and results (recent two shown inline, full history in separate window).
+1. Install Python 3.6 or later.
+2. Install the `darkdetect` module:
+   ```bash
+   pip install darkdetect
+   ```
+3. Run the script:
+   ```bash
+   python calculator_gui.py
+   ```
+
+---
+
+## Final Thoughts
+
+This calculator blends functionality and aesthetics into a single Python application that showcases the power of `tkinter` for desktop GUI development. It’s a great starting point for learners or a handy tool for daily calculations.
